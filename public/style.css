@@ -10,6 +10,10 @@ body {
 a { color: #0b6b64; }
 .muted { color: #5c5c5c; }
 
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 1rem; padding: 1rem 0 0.5rem; border-bottom: 1px solid #e2e2e2; }
+header a { color: #1a1a1a; text-decoration: none; }
+nav a + a { margin-left: 1rem; }
+
 h1, h2, h3 { line-height: 1.2; }
 h1 { font-size: 1.75rem; margin: 1.5rem 0 1rem; }
 h2 { font-size: 1.25rem; margin: 2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid #e2e2e2; }
