@@ -40,7 +40,7 @@ Other systems: see [pandoc.org/installing](https://pandoc.org/installing.html). 
 
 4. Cloudflare comments on the pull request with a preview link. Open it to check the page.
 
-5. Merge the pull request into `main`. Cloudflare publishes the site automatically.
+5. Merge the pull request into `main`. Cloudflare deploys the site automatically. It is not public yet; see "Going live" below.
 
 ## What the files are
 
@@ -53,6 +53,19 @@ Other systems: see [pandoc.org/installing](https://pandoc.org/installing.html). 
 - `wrangler.jsonc`: Cloudflare settings.
 
 To look at the site on your own computer before opening a pull request, run `npx wrangler dev` in the main folder and open <http://localhost:8787>. This needs [Node.js](https://nodejs.org).
+
+## Going live
+
+The site is not public yet. Merging into `main` deploys it, but it isn't reachable at bte.wtf or at a public workers.dev address. Only the pull request preview links work.
+
+To go live, add these lines to `wrangler.jsonc`, next to `"workers_dev": false`, and merge:
+
+```jsonc
+"routes": [
+  { "pattern": "bte.wtf", "custom_domain": true },
+  { "pattern": "www.bte.wtf", "custom_domain": true }
+],
+```
 
 ## License
 
