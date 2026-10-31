@@ -23,7 +23,6 @@ const BOXES = [
   { id: 'pol26b', title: 'Labeled Multi-Key Batched IBE', papers: 'Pol26b', x: 650, y: 505 },
   { id: 'acadg', title: 'Batched Weighted Silent TE', papers: 'ACADG26', x: 1010, y: 505 },
   { id: 'isbte', title: 'Indexed Simple BTE', papers: 'Pol26a', x: 130, y: 620 },
-  { id: 'lee', title: 'Outsourced Silent TBIBE', papers: 'Lee26', x: 900, y: 620 },
 ];
 
 const ARROWS = [
@@ -44,7 +43,6 @@ const ARROWS = [
   ['simple', 'dkg'],
   ['trx', 'pol26b'],
   ['sbtibe', 'pol26b'],
-  ['sbtibe', 'lee'],
   ['beast', 'acadg'],
 ];
 
@@ -55,7 +53,6 @@ const EPRINT = {
   Pol26d: '2026/2205',
   ACADG26: '2026/2087',
   FPRT26: '2026/2053',
-  Lee26: '2026/1558',
   CGPP24: '2024/669',
   GKPW24: '2024/263',
   WW25: '2025/1547',
