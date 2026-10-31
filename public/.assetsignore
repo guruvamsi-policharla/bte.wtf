@@ -1,0 +1,4 @@
+*.md
+makefile
+template.html
+.assetsignore

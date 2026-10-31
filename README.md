@@ -1,28 +1,58 @@
 # bte.wtf
 
-[bte.wtf](https://bte.wtf) is a small website that lists research papers on **batched threshold encryption (BTE)**.
+The source for [bte.wtf](https://bte.wtf), a website about batched threshold encryption.
 
-The whole site is one web page, `public/index.html`, plus a stylesheet, `public/style.css`. Nothing needs to be installed or built.
+Pages are written in Markdown (`.md` files) in the `public/` folder. A tool called pandoc turns each `.md` file into the `.html` web page that people see. You run that conversion yourself and commit both files. Cloudflare then publishes the `public/` folder as is.
 
-## Adding a paper
+## One-time setup
 
-1. Open `public/index.html`. On GitHub you can click the pencil icon to edit it in your browser.
-2. Find the comment that starts with `HOW TO ADD A PAPER`. Copy the example block in it, which starts at `<div class="paper">` and ends at `</div>`.
-3. Paste it into the list, keeping the list newest first. Fill in:
-   - the title, exactly as it appears on ePrint;
-   - the authors, in the paper's order;
-   - the venue and year, or "Preprint" and the year;
-   - the ePrint link, which appears twice in the block.
-4. Open a pull request. Please only add details you can check on the paper or its ePrint page.
+Install pandoc. On a Mac with [Homebrew](https://brew.sh):
 
-## Previews and publishing
+```sh
+brew install pandoc
+```
 
-- Every pull request gets a Cloudflare preview. A bot comments on the pull request with a link, so you can see the change before merging.
-- Merging into `main` publishes the site to bte.wtf automatically.
+Other systems: see [pandoc.org/installing](https://pandoc.org/installing.html). `make` comes with macOS. If it is missing, run `xcode-select --install`.
 
-## Optional: viewing the site on your own computer
+## Editing or adding a page
 
-If you have [Node.js](https://nodejs.org) installed, run `npx wrangler dev` in this folder and open <http://localhost:8787>. You can also just open `public/index.html` in a browser.
+1. Edit a `.md` file in `public/`, or create a new one. For example, `public/papers.md` becomes `bte.wtf/papers`. Start each file with a title, like this:
+
+   ```markdown
+   ---
+   title: Papers
+   ---
+
+   # Papers
+
+   Math works too: $e(g, h)^{ab}$
+   ```
+
+2. Open a terminal in the `public/` folder and run:
+
+   ```sh
+   make
+   ```
+
+   This creates or updates the matching `.html` file next to each `.md` file.
+
+3. Commit **both** the `.md` file and the generated `.html` file, then open a pull request.
+
+4. Cloudflare comments on the pull request with a preview link. Open it to check the page.
+
+5. Merge the pull request into `main`. Cloudflare publishes the site automatically.
+
+## What the files are
+
+- `public/*.md`: the pages, written in Markdown.
+- `public/*.html`: the web pages generated from them. Don't edit these by hand; edit the `.md` file and run `make`.
+- `public/template.html`: the shared page layout used for every page.
+- `public/style.css`: the look of the site.
+- `public/makefile`: the instructions `make` follows to run pandoc.
+- `public/.assetsignore`: keeps the `.md` files, the makefile and the template off the live site.
+- `wrangler.jsonc`: Cloudflare settings.
+
+To look at the site on your own computer before opening a pull request, run `npx wrangler dev` in the main folder and open <http://localhost:8787>. This needs [Node.js](https://nodejs.org).
 
 ## License
 
