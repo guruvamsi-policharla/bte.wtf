@@ -1,55 +1,29 @@
 # bte.wtf
 
-A small, hand-maintained resource on **batched threshold encryption (BTE)**. BTE lets a committee of servers decrypt any chosen batch of ciphertexts with communication independent of (or sublinear in) the batch size, while ciphertexts outside the batch stay private. Its main application is encrypted mempools.
+[bte.wtf](https://bte.wtf) is a small website that lists research papers on **batched threshold encryption (BTE)**.
 
-Right now the site has a home page and a [papers](https://bte.wtf/papers) page. Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md) to add a paper.
+The whole site is one web page, `public/index.html`, plus a stylesheet, `public/style.css`. Nothing needs to be installed or built.
 
-## How it works
+## Adding a paper
 
-The whole site is a single [Cloudflare Worker](https://developers.cloudflare.com/workers/) written in TypeScript with [Hono](https://hono.dev). Pages are rendered on the server from template-string view functions. There is no static site generator and no build step: `wrangler deploy` bundles the Worker with esbuild.
+1. Open `public/index.html`. On GitHub you can click the pencil icon to edit it in your browser.
+2. Find the comment that starts with `HOW TO ADD A PAPER`. Copy the example block in it, which starts at `<div class="paper">` and ends at `</div>`.
+3. Paste it into the list, keeping the list newest first. Fill in:
+   - the title, exactly as it appears on ePrint;
+   - the authors, in the paper's order;
+   - the venue and year, or "Preprint" and the year;
+   - the ePrint link, which appears twice in the block.
+4. Open a pull request. Please only add details you can check on the paper or its ePrint page.
 
-```
-src/
-  index.ts        routes (Hono app)
-  views.ts        HTML layout and page templates
-  data/papers.ts  the bibliography: one typed array of papers
-public/           static assets served directly by Workers Static Assets
-  style.css       all of the CSS, hand-written
-  papers.js       optional live search; the page works without JS
-  fonts/          Courier Prime (SIL OFL 1.1, see fonts/OFL.txt)
-  favicon.svg
-  _headers        cache and security headers for static files
-wrangler.jsonc    Worker config
-```
+## Previews and publishing
 
-Each paper in `src/data/papers.ts` is typed by the `Paper` interface. The optional `scheme` field (setup type, ciphertext size, partial decryption size, decryption cost, assumptions, and so on) is not rendered yet. It exists so that a comparison table, or a machine-readable endpoint, can be built from the same data later.
+- Every pull request gets a Cloudflare preview. A bot comments on the pull request with a link, so you can see the change before merging.
+- Merging into `main` publishes the site to bte.wtf automatically.
 
-## Running locally
+## Optional: viewing the site on your own computer
 
-Requires Node.js 18 or newer.
-
-```sh
-npm install
-npx wrangler dev      # or: npm run dev
-```
-
-Then open <http://localhost:8787>. Edits to `src/` and `public/` reload automatically.
-
-Type-check with:
-
-```sh
-npx tsc --noEmit      # or: npm run typecheck
-```
-
-## Deploying
-
-```sh
-npx wrangler login    # once
-npx wrangler deploy   # or: npm run deploy
-```
-
-`wrangler.jsonc` declares `bte.wtf` and `www.bte.wtf` as [custom domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/). The `bte.wtf` zone must be on the same Cloudflare account that you deploy from. Requests to `www.bte.wtf` are redirected to `bte.wtf` by the Worker.
+If you have [Node.js](https://nodejs.org) installed, run `npx wrangler dev` in this folder and open <http://localhost:8787>. You can also just open `public/index.html` in a browser.
 
 ## License
 
-[MIT](LICENSE), © 2026 Guru Vamsi Policharla. The bundled Courier Prime font files in `public/fonts/` are licensed separately under the [SIL Open Font License 1.1](public/fonts/OFL.txt).
+[MIT](LICENSE), © 2026 Guru Vamsi Policharla.

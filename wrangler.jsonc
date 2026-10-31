@@ -1,19 +1,12 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "bte-wtf",
-  "main": "src/index.ts",
   "compatibility_date": "2026-10-01",
-  "assets": {
-    "directory": "./public"
-  },
-  // Lets future content (e.g. an FAQ) be written in Markdown and imported as a string.
-  "rules": [{ "type": "Text", "globs": ["**/*.md"], "fallthrough": true }],
+  "assets": { "directory": "./public" },
   "routes": [
     { "pattern": "bte.wtf", "custom_domain": true },
     { "pattern": "www.bte.wtf", "custom_domain": true }
   ],
-  "observability": { "enabled": true },
-  // Previews are served on workers.dev. Production custom domains above do not apply to previews.
+  // Gives each pull request preview a workers.dev link (takes effect after the first deploy from main).
   "preview_urls": true,
   "previews": {}
 }
