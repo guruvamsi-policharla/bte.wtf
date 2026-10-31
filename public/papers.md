@@ -2,6 +2,8 @@
 title: Papers
 ---
 
+## Batched Threshold Encryption
+
 **Tree-BTE: Batched Threshold Encryption using Additive Homomorphism**\
 *Amit Agarwal, Sourav Das, Babak Poorebrahim Gilkalaye, Benny Pinkas, Peter Rindal*\
 [ePrint 2026/2463](https://eprint.iacr.org/2026/2463) · [mirror](/papers/2026-2463.pdf)
@@ -29,6 +31,10 @@ title: Papers
 **Weighted Batch Threshold Encryption with Efficient DKG**\
 *Alexander Frolov, Aditi Partap, Max Resnick, Ertem Nusret Tas*\
 [ePrint 2026/2053](https://eprint.iacr.org/2026/2053) · [mirror](/papers/2026-2053.pdf)
+
+**Verifiable Outsourced BTE with Silent Setup: Achieving Constant-Rate Batched Delegation**\
+*Kwangsu Lee*\
+[ePrint 2026/1558](https://eprint.iacr.org/2026/1558) · [mirror](/papers/2026-1558.pdf)
 
 **Labeled Multi-Key Batched IBE**\
 *Guru-Vamsi Policharla*\
@@ -89,3 +95,69 @@ title: Papers
 **Mempool Privacy via Batched Threshold Encryption: Attacks and Defenses**\
 *Arka Rai Choudhuri, Sanjam Garg, Julien Piet, Guru-Vamsi Policharla*\
 [ePrint 2024/669](https://eprint.iacr.org/2024/669) · [mirror](/papers/2024-669.pdf)
+
+## Silent Threshold Encryption
+
+**Threshold BARGs with Statistical Soundness: Weighted Threshold Encryption without Obfuscation**\
+*Shafik Nassar, Brent Waters, David J. Wu*\
+[ePrint 2026/2436](https://eprint.iacr.org/2026/2436) · [mirror](/papers/2026-2436.pdf)
+
+**Weighted Threshold Encryption with Silent Setup**\
+*Guru-Vamsi Policharla*\
+[ePrint 2026/2148](https://eprint.iacr.org/2026/2148) · [mirror](/papers/2026-2148.pdf)
+
+**Practical Silent Threshold Signatures and Silent Threshold Encryption for Dynamic Committees**\
+*Yifei He, Zheng Zhou, Yu Chen, Zhi Guan, Zhong Chen*\
+[ePrint 2026/1820](https://eprint.iacr.org/2026/1820) · [mirror](/papers/2026-1820.pdf)
+
+**Silent Threshold Encryption from Lattices**\
+*Jeffrey Champion, David J. Wu, Shota Yamada*\
+[ePrint 2026/1716](https://eprint.iacr.org/2026/1716) · [mirror](/papers/2026-1716.pdf)
+
+**Distributed Monotone Policy Encryption with Stronger Security for DNFs and Threshold Policies from Lattices**\
+*Rishab Goyal, Saikumar Yadugiri*\
+[ePrint 2026/1609](https://eprint.iacr.org/2026/1609) · [mirror](/papers/2026-1609.pdf)
+
+**Silent Distributed Cryptography for DNFs and Threshold Policies from Lattices**\
+*Abtin Afshar, Rishab Goyal, Saikumar Yadugiri*\
+[ePrint 2026/1547](https://eprint.iacr.org/2026/1547) · [mirror](/papers/2026-1547.pdf)
+
+**Optimal Distributed Monotone-Policy Encryption for DNFs and More from Lattices**\
+*Jeffrey Champion, David J. Wu*\
+[ePrint 2026/1464](https://eprint.iacr.org/2026/1464) · [mirror](/papers/2026-1464.pdf)
+
+**Distributed Monotone-Policy Encryption with Silent Setup from Lattices**\
+*Abtin Afshar, Rishab Goyal, Saikumar Yadugiri*\
+[ePrint 2026/372](https://eprint.iacr.org/2026/372) · [mirror](/papers/2026-372.pdf)
+
+**Distributed Monotone-Policy Encryption for DNFs from Lattices**\
+*Jeffrey Champion, David J. Wu*\
+[ePrint 2026/318](https://eprint.iacr.org/2026/318) · [mirror](/papers/2026-318.pdf)
+
+**Partial Fraction Techniques for Cryptography**\
+*Charanjit S. Jutla, Rohit Nema, Arnab Roy*\
+[ePrint 2025/2081](https://eprint.iacr.org/2025/2081) · [mirror](/papers/2025-2081.pdf)
+
+**Silent Threshold Cryptography from Pairings: Expressive Policies in the Plain Model**\
+*Brent Waters, David J. Wu*\
+[ePrint 2025/1547](https://eprint.iacr.org/2025/1547) · [mirror](/papers/2025-1547.pdf)
+
+**Silent Threshold Encryption with One-Shot Adaptive Security**\
+*Mathias Hall-Andersen, Mark Simkin, Benedikt Wagner*\
+[ePrint 2025/1384](https://eprint.iacr.org/2025/1384) · [mirror](/papers/2025-1384.pdf)
+
+**A Framework for Witness Encryption from Linearly Verifiable SNARKs and Applications**\
+*Sanjam Garg, Mohammad Hajiabadi, Dimitris Kolonelos, Abhiram Kothapalli, Guru-Vamsi Policharla*\
+[ePrint 2025/1364](https://eprint.iacr.org/2025/1364) · [mirror](/papers/2025-1364.pdf)
+
+**Succinct Witness Encryption for Batch Languages and Applications**\
+*Lalita Devadas, Abhishek Jain, Brent Waters, David J. Wu*\
+[ePrint 2025/944](https://eprint.iacr.org/2025/944) · [mirror](/papers/2025-944.pdf)
+
+**Traceable Threshold Encryption without a Trusted Dealer**\
+*Jan Bormet, Jonas Hofmann, Hussien Othman*\
+[ePrint 2025/342](https://eprint.iacr.org/2025/342) · [mirror](/papers/2025-342.pdf)
+
+**Threshold Encryption with Silent Setup**\
+*Sanjam Garg, Dimitris Kolonelos, Guru-Vamsi Policharla, Mingyuan Wang*\
+[ePrint 2024/263](https://eprint.iacr.org/2024/263) · [mirror](/papers/2024-263.pdf)
