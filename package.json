@@ -2,6 +2,7 @@
   "name": "bte-wtf",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "description": "bte.wtf: a minimal resource site about batched threshold encryption",
   "type": "module",
   "scripts": {

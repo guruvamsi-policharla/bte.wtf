@@ -49,3 +49,7 @@ npx wrangler deploy   # or: npm run deploy
 ```
 
 `wrangler.jsonc` declares `bte.wtf` and `www.bte.wtf` as [custom domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/). The `bte.wtf` zone must be on the same Cloudflare account that you deploy from. Requests to `www.bte.wtf` are redirected to `bte.wtf` by the Worker.
+
+## License
+
+[MIT](LICENSE), © 2026 Guru Vamsi Policharla. The bundled Courier Prime font files in `public/fonts/` are licensed separately under the [SIL Open Font License 1.1](public/fonts/OFL.txt).
