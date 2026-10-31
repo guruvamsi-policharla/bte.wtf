@@ -5,7 +5,7 @@ MD_TARGETS := $(MD_SOURCES:.md=.html)
 
 # Rebuilds a page when its .md file or the template changes
 %.html: %.md template.html
-	pandoc $< -o $@ --template=template.html --math-method=katex --standalone
+	pandoc $< -o $@ --template=template.html --math-method=katex --standalone -M current-$(basename $(notdir $<))
 
 markdown: $(MD_TARGETS)
 
