@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bte.wtf · batched threshold encryption</title>
+<meta name="description" content="Papers on batched threshold encryption (BTE).">
+<link rel="canonical" href="https://bte.wtf/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a class="wordmark" href="/">bte.wtf</a>
+  <nav><a href="#papers">papers</a> <a href="https://github.com/guruvamsi-policharla/bte.wtf">github</a></nav>
+</header>
+
+<main>
+<h1>Batched threshold encryption</h1>
+<p>In <em>batched threshold encryption</em> (BTE), users encrypt to a committee of servers. Later, the committee can decrypt any chosen batch of ciphertexts with communication that is independent of, or sublinear in, the batch size. Ciphertexts outside the batch stay hidden as long as fewer than a threshold of servers collude.</p>
+<p>The main application is <em>encrypted mempools</em>: transactions stay private until they are included in a block, which protects users from front-running and other forms of MEV.</p>
+
+<h2 id="papers">Papers</h2>
+<p class="muted">Newest first. Missing one? <a href="https://github.com/guruvamsi-policharla/bte.wtf#adding-a-paper">Add it with a pull request</a>.</p>
+
+<!--
+  HOW TO ADD A PAPER
+  1. Copy this block (from <div class="paper"> to </div>):
+
+  <div class="paper">
+    <a class="title" href="https://eprint.iacr.org/YYYY/NNNN">Paper title, exactly as on ePrint</a>
+    <div>First Author, Second Author, Third Author</div>
+    <div class="muted">Venue YEAR (or "Preprint YEAR") · <a href="https://eprint.iacr.org/YYYY/NNNN">ePrint YYYY/NNNN</a></div>
+  </div>
+
+  2. Paste it into the list below, keeping the list newest first.
+  3. Fill in the title, the authors (in the paper's order), the venue or "Preprint" with the year, and the ePrint link (twice).
+-->
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2026/2205">DKG Is All You Need</a>
+  <div>Guru-Vamsi Policharla</div>
+  <div class="muted">Preprint 2026 · <a href="https://eprint.iacr.org/2026/2205">ePrint 2026/2205</a></div>
+</div>
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2026/760">A Simple Batched Threshold Encryption Scheme</a>
+  <div>Guru-Vamsi Policharla</div>
+  <div class="muted">Preprint 2026 · <a href="https://eprint.iacr.org/2026/760">ePrint 2026/760</a></div>
+</div>
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2026/754">BTX: Simple and Efficient Batch Threshold Encryption</a>
+  <div>Amit Agarwal, Sourav Das, Babak Poorebrahim Gilkalaye, Peter Rindal, Victor Shoup</div>
+  <div class="muted">Preprint 2026 · <a href="https://eprint.iacr.org/2026/754">ePrint 2026/754</a></div>
+</div>
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2026/674">Efficient Batch Threshold Encryption Using Partial Fraction Techniques</a>
+  <div>Dan Boneh, Rohit Nema, Arnab Roy, Ertem Nusret Tas</div>
+  <div class="muted">CRYPTO 2026 · <a href="https://eprint.iacr.org/2026/674">ePrint 2026/674</a></div>
+</div>
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2025/2115">Weighted Batched Threshold Encryption with Applications to Mempool Privacy</a>
+  <div>Amit Agarwal, Kushal Babel, Sourav Das, Babak Poorebrahim Gilkalaye, Arup Mondal, Benny Pinkas, Peter Rindal, Aayush Yadav</div>
+  <div class="muted">Preprint 2025 · <a href="https://eprint.iacr.org/2025/2115">ePrint 2025/2115</a></div>
+</div>
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2025/1419">BEAST-MEV: Batched Threshold Encryption with Silent Setup for MEV prevention</a>
+  <div>Jan Bormet, Arka Rai Choudhuri, Sebastian Faust, Sanjam Garg, Hussien Othman, Guru-Vamsi Policharla, Ziyan Qu, Mingyuan Wang</div>
+  <div class="muted">ACM CCS 2026 · <a href="https://eprint.iacr.org/2025/1419">ePrint 2025/1419</a></div>
+</div>
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2024/1575">Efficiently-Thresholdizable Batched Identity Based Encryption, with Applications</a>
+  <div>Amit Agarwal, Rex Fernando, Benny Pinkas</div>
+  <div class="muted">CRYPTO 2025 · <a href="https://eprint.iacr.org/2024/1575">ePrint 2024/1575</a></div>
+</div>
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2024/1533">BEAT-MEV: Epochless Approach to Batched Threshold Encryption for MEV Prevention</a>
+  <div>Jan Bormet, Sebastian Faust, Hussien Othman, Ziyan Qu</div>
+  <div class="muted">USENIX Security 2025 · <a href="https://eprint.iacr.org/2024/1533">ePrint 2024/1533</a></div>
+</div>
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2024/1516">Practical Mempool Privacy via One-time Setup Batched Threshold Encryption</a>
+  <div>Arka Rai Choudhuri, Sanjam Garg, Guru-Vamsi Policharla, Mingyuan Wang</div>
+  <div class="muted">Preprint 2024 · <a href="https://eprint.iacr.org/2024/1516">ePrint 2024/1516</a></div>
+</div>
+
+<div class="paper">
+  <a class="title" href="https://eprint.iacr.org/2024/669">Mempool Privacy via Batched Threshold Encryption: Attacks and Defenses</a>
+  <div>Arka Rai Choudhuri, Sanjam Garg, Julien Piet, Guru-Vamsi Policharla</div>
+  <div class="muted">USENIX Security 2024 · <a href="https://eprint.iacr.org/2024/669">ePrint 2024/669</a></div>
+</div>
+
+</main>
+
+<footer class="muted">Open source under the MIT license. Spotted an error or a missing paper? <a href="https://github.com/guruvamsi-policharla/bte.wtf">Open a pull request</a>.</footer>
+
+</body>
+</html>
