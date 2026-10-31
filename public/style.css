@@ -1,10 +1,12 @@
+@font-face { font-family: "CMU Typewriter"; font-weight: 400; font-style: normal; src: url("/fonts/cmu-typewriter.woff2") format("woff2"); font-display: swap; }
+
 body {
   max-width: 46rem;
   margin: 0 auto;
   padding: 0 16px;
   background: #fff;
   color: #1a1a1a;
-  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 16px/1.5 Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
 }
 
 a { color: #0b6b64; }
@@ -16,6 +18,9 @@ nav a + a { margin-left: 1rem; }
 
 .home { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
 .home a { display: block; }
+header a, .home h1, .home a { font-family: "CMU Typewriter", "Latin Modern Mono", "Courier New", monospace; font-weight: 400; }
+nav a, .home a { text-decoration: none; }
+nav a:hover, nav a:focus-visible, nav a[aria-current="page"], .home a:hover, .home a:focus-visible { text-decoration: underline; }
 
 h1, h2, h3 { line-height: 1.2; }
 h1 { font-size: 1.75rem; margin: 1.5rem 0 1rem; }
