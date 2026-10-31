@@ -2,11 +2,12 @@
   "name": "bte-wtf",
   "compatibility_date": "2026-10-01",
   "assets": { "directory": "./public" },
-  "routes": [
-    { "pattern": "bte.wtf", "custom_domain": true },
-    { "pattern": "www.bte.wtf", "custom_domain": true }
-  ],
-  // Gives each pull request preview a workers.dev link (takes effect after the first deploy from main).
+  // Uncomment to go live on bte.wtf (takes effect on the next deploy from main)
+  // "routes": [
+  //   { "pattern": "bte.wtf", "custom_domain": true },
+  //   { "pattern": "www.bte.wtf", "custom_domain": true }
+  // ],
+  "workers_dev": false,
   "preview_urls": true,
   "previews": {}
 }
