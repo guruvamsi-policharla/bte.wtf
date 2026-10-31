@@ -12,5 +12,8 @@
     { "pattern": "bte.wtf", "custom_domain": true },
     { "pattern": "www.bte.wtf", "custom_domain": true }
   ],
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  // Previews are served on workers.dev. Production custom domains above do not apply to previews.
+  "preview_urls": true,
+  "previews": {}
 }
