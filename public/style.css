@@ -14,6 +14,9 @@ header { display: flex; flex-wrap: wrap; justify-content: space-between; align-i
 header a { color: #1a1a1a; text-decoration: none; }
 nav a + a { margin-left: 1rem; }
 
+.home { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+.home a { display: block; }
+
 h1, h2, h3 { line-height: 1.2; }
 h1 { font-size: 1.75rem; margin: 1.5rem 0 1rem; }
 h2 { font-size: 1.25rem; margin: 2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid #e2e2e2; }
