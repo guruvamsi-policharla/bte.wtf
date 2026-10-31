@@ -1,3 +1,5 @@
+@font-face { font-family: "CMU Typewriter"; font-weight: 400; font-style: normal; src: url("/fonts/cmu-typewriter.woff2") format("woff2"); font-display: swap; }
+
 body {
   max-width: 46rem;
   margin: 0 auto;
@@ -16,7 +18,7 @@ nav a + a { margin-left: 1rem; }
 
 .home { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
 .home a { display: block; }
-header a, .home h1, .home a { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+header a, .home h1, .home a { font-family: "CMU Typewriter", "Latin Modern Mono", "Courier New", monospace; font-weight: 400; }
 
 h1, h2, h3 { line-height: 1.2; }
 h1 { font-size: 1.75rem; margin: 1.5rem 0 1rem; }
