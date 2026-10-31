@@ -1,0 +1,33 @@
+name: Check generated HTML
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check-html:
+    runs-on: ubuntu-latest
+    env:
+      PANDOC_VERSION: "3.13" # keep in sync with public/makefile
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pandoc ${{ env.PANDOC_VERSION }}
+        run: |
+          curl -sSLo pandoc.deb "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          sudo dpkg -i pandoc.deb
+          rm pandoc.deb
+
+      # -B rebuilds every page, since checkout timestamps don't reflect which file changed last.
+      - name: Rebuild pages
+        run: make -B -C public
+
+      - name: Check committed HTML is up to date
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git status --short
+            git diff
+            echo "::error::Generated HTML is out of date. Run 'make' in public/ (pandoc ${PANDOC_VERSION}) and commit the .html files."
+            exit 1
+          fi
