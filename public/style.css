@@ -19,6 +19,8 @@ nav a + a { margin-left: 1rem; }
 .home { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
 .home a { display: block; }
 header a, .home h1, .home a { font-family: "CMU Typewriter", "Latin Modern Mono", "Courier New", monospace; font-weight: 400; }
+nav a, .home a { text-decoration: none; }
+nav a:hover, nav a:focus-visible, nav a[aria-current="page"], .home a:hover, .home a:focus-visible { text-decoration: underline; }
 
 h1, h2, h3 { line-height: 1.2; }
 h1 { font-size: 1.75rem; margin: 1.5rem 0 1rem; }
