@@ -1,0 +1,25 @@
+{
+  "name": "bte-wtf",
+  "version": "0.1.0",
+  "private": true,
+  "description": "bte.wtf: a minimal resource site about batched threshold encryption",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guruvamsi-policharla/bte.wtf.git"
+  },
+  "homepage": "https://bte.wtf",
+  "dependencies": {
+    "hono": "^4.13.14"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261031.1",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.156.0"
+  }
+}
