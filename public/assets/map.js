@@ -93,6 +93,8 @@ function createBox(box) {
     if (index > 0) papers.append(', ');
     const link = document.createElement('a');
     link.href = `https://eprint.iacr.org/${EPRINT[paper]}`;
+    link.target = '_blank';
+    link.rel = 'noopener';
     link.textContent = paper;
     papers.append(link);
   });
