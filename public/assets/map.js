@@ -3,26 +3,24 @@
 // Box centers are in pixels on a DESIGN_WIDTH x DESIGN_HEIGHT canvas that is scaled to fit the page.
 
 const DESIGN_WIDTH = 1200;
-const DESIGN_HEIGHT = 680;
+const DESIGN_HEIGHT = 570;
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
 const BOXES = [
-  { id: 'bte', title: 'Batched Threshold Encryption', papers: 'CGPP24', x: 470, y: 45 },
+  { id: 'bte', title: 'Batched Threshold Encryption', papers: 'CGPP24', x: 345, y: 45 },
   { id: 'ste', title: 'Silent Threshold Encryption', papers: 'GKPW24, WW25', x: 1000, y: 45 },
-  { id: 'beat', title: 'BEAT-MEV(++)', papers: 'BFOQ25, ABDGMPRY25', x: 760, y: 160 },
-  { id: 'pol26c', title: 'Weighted Silent TE', papers: 'Pol26c', x: 1095, y: 160 },
-  { id: 'pfbte', title: 'Partial Fraction-BTE', papers: 'BNRT26', x: 130, y: 275 },
-  { id: 'btibe', title: 'Batched Threshold IBE', papers: 'SAS24, CGPW25, AFP25, GWWW25', x: 520, y: 275 },
-  { id: 'tree', title: 'Tree-BTE', papers: 'ADGPR26', x: 740, y: 275 },
-  { id: 'simple', title: 'Simple BTE, BTX', papers: 'Pol26a, ADGRS26', x: 330, y: 390 },
-  { id: 'trx', title: 'TrX', papers: 'FPTX25', x: 520, y: 390 },
-  { id: 'sbtibe', title: 'Silent Batched (T)IBE', papers: 'GWWW25', x: 720, y: 390 },
-  { id: 'beast', title: 'BEAST-MEV', papers: 'BCFGOPQW25', x: 950, y: 390 },
+  { id: 'beat', title: 'BEAT-MEV(++)', papers: 'BFOQ25, ABDGMPRY25', x: 700, y: 160 },
+  { id: 'pfbte', title: 'Partial Fraction-BTE', papers: 'BNRT26', x: 120, y: 390 },
+  { id: 'btibe', title: 'Batched Threshold IBE', papers: 'SAS24, CGPW25, AFP25, GWWW25', x: 560, y: 275 },
+  { id: 'tree', title: 'Tree-BTE', papers: 'ADGPR26', x: 880, y: 275 },
+  { id: 'simple', title: 'Simple BTE, BTX', papers: 'Pol26a, ADGRS26', x: 345, y: 390 },
+  { id: 'trx', title: 'TrX', papers: 'FPTX25', x: 500, y: 390 },
+  { id: 'sbtibe', title: 'Silent Batched (T)IBE', papers: 'GWWW25', x: 680, y: 390 },
+  { id: 'beast', title: 'BEAST-MEV', papers: 'BCFGOPQW25', x: 960, y: 390 },
   { id: 'fprt', title: 'Weighted BTE', papers: 'FPRT26', x: 120, y: 505 },
-  { id: 'dkg', title: 'DKG Is All You Need', papers: 'Pol26d', x: 360, y: 505 },
-  { id: 'pol26b', title: 'Labeled Multi-Key Batched IBE', papers: 'Pol26b', x: 650, y: 505 },
-  { id: 'acadg', title: 'Batched Weighted Silent TE', papers: 'ACADG26', x: 1010, y: 505 },
-  { id: 'isbte', title: 'Indexed Simple BTE', papers: 'Pol26a', x: 130, y: 620 },
+  { id: 'dkg', title: 'DKG Is All You Need', papers: 'Pol26d', x: 112, y: 160 },
+  { id: 'pol26b', title: 'Labeled Multi-Key Batched IBE', papers: 'Pol26b', x: 590, y: 505 },
+  { id: 'wste', title: '(Batched) Weighted STE', papers: 'Pol26c, ACADG26', x: 1060, y: 505 },
 ];
 
 const ARROWS = [
@@ -30,20 +28,19 @@ const ARROWS = [
   ['bte', 'pfbte'],
   ['bte', 'btibe'],
   ['bte', 'beat'],
+  ['bte', 'dkg'],
   ['btibe', 'trx'],
   ['btibe', 'sbtibe'],
   ['ste', 'sbtibe'],
   ['ste', 'beast'],
-  ['ste', 'pol26c'],
+  ['ste', 'wste'],
   ['beat', 'beast'],
   ['beat', 'tree'],
-  ['simple', 'isbte'],
   ['simple', 'fprt'],
   ['pfbte', 'fprt'],
-  ['simple', 'dkg'],
+  ['beast', 'wste'],
   ['trx', 'pol26b'],
   ['sbtibe', 'pol26b'],
-  ['beast', 'acadg'],
 ];
 
 const EPRINT = {
