@@ -10,7 +10,7 @@ title: Papers
 
 **Batch Decryption from New Standard Assumptions**\
 *Nico Döttling, Bernardo Magri, Benjamin Marsh, Mahesh Sreekumar Rajasree*\
-[ePrint 2026/2252](https://eprint.iacr.org/2026/2252) · [mirror](/papers/2026-2252.pdf)
+[ePrint 2026/2252](https://eprint.iacr.org/2026/2252)
 
 **DKG Is All You Need**\
 *Guru-Vamsi Policharla*\
@@ -78,7 +78,7 @@ title: Papers
 
 **Efficiently-Thresholdizable Batched Identity Based Encryption, with Applications**\
 *Amit Agarwal, Rex Fernando, Benny Pinkas*\
-[ePrint 2024/1575](https://eprint.iacr.org/2024/1575) · [mirror](/papers/2024-1575.pdf)
+[ePrint 2024/1575](https://eprint.iacr.org/2024/1575)
 
 **BEAT-MEV: Epochless Approach to Batched Threshold Encryption for MEV Prevention**\
 *Jan Bormet, Sebastian Faust, Hussien Othman, Ziyan Qu*\
