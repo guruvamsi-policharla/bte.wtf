@@ -1,0 +1,7 @@
+---
+title: FAQ
+---
+
+## Question?
+
+Answer.
