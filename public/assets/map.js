@@ -9,17 +9,17 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const BOXES = [
   { id: 'bte', title: 'Batched Threshold Encryption', papers: 'CGPP24', x: 345, y: 45 },
   { id: 'ste', title: 'Silent Threshold Encryption', papers: 'GKPW24', x: 1000, y: 45 },
-  { id: 'stibe', title: 'Silent Threshold IBE', papers: 'WW25', x: 840, y: 160 },
+  { id: 'dkg', title: 'DKG Is All You Need', papers: 'Pol26d', x: 112, y: 160 },
   { id: 'beat', title: 'BEAT-MEV(++)', papers: 'BFOQ25, ABDGMPRY25', x: 600, y: 160 },
-  { id: 'pfbte', title: 'Partial Fraction-BTE', papers: 'BNRT26', x: 120, y: 390 },
+  { id: 'stibe', title: 'Silent Threshold IBE', papers: 'WW25', x: 840, y: 160 },
   { id: 'btibe', title: 'Batched Threshold IBE', papers: 'SAS24, CGPW25, AFP25', x: 520, y: 275 },
   { id: 'tree', title: 'Tree-BTE', papers: 'ADGPR26', x: 880, y: 275 },
+  { id: 'pfbte', title: 'Partial Fraction-BTE', papers: 'BNRT26', x: 120, y: 390 },
   { id: 'simple', title: 'Simple BTE, BTX', papers: 'Pol26a, ADGRS26', x: 345, y: 390 },
   { id: 'trx', title: 'TrX', papers: 'FPTX25', x: 490, y: 390 },
   { id: 'sbtibe', title: 'Silent Batched (T)IBE', papers: 'GWWW25', x: 740, y: 390 },
   { id: 'beast', title: 'BEAST-MEV', papers: 'BCFGOPQW25', x: 960, y: 390 },
   { id: 'fprt', title: 'Weighted BTE', papers: 'FPRT26', x: 120, y: 505 },
-  { id: 'dkg', title: 'DKG Is All You Need', papers: 'Pol26d', x: 112, y: 160 },
   { id: 'pol26b', title: 'Labeled Multi-Key Batched IBE', papers: 'Pol26b', x: 620, y: 505 },
   { id: 'wste', title: '(Batched) Weighted STE', papers: 'Pol26c, ACADG26', x: 1065, y: 505 },
 ];
@@ -46,30 +46,29 @@ const ARROWS = [
 ];
 
 const EPRINT = {
-  SAS24: '2024/762',
-  ADGPR26: '2026/2463',
-  Pol26c: '2026/2148',
-  Pol26d: '2026/2205',
-  ACADG26: '2026/2087',
-  FPRT26: '2026/2053',
-  CGPP24: '2024/669',
-  GKPW24: '2024/263',
-  WW25: '2025/1547',
-  BFOQ25: '2024/1533',
   ABDGMPRY25: '2025/2115',
-  BNRT26: '2026/674',
-  CGPW25: '2024/1516',
+  ACADG26: '2026/2087',
+  ADGPR26: '2026/2463',
+  ADGRS26: '2026/754',
   AFP25: '2024/1575',
+  BCFGOPQW25: '2025/1419',
+  BFOQ25: '2024/1533',
+  BNRT26: '2026/674',
+  CGPP24: '2024/669',
+  CGPW25: '2024/1516',
+  FPRT26: '2026/2053',
+  FPTX25: '2025/2032',
+  GKPW24: '2024/263',
   GWWW25: '2025/2103',
   Pol26a: '2026/760',
-  ADGRS26: '2026/754',
-  FPTX25: '2025/2032',
-  BCFGOPQW25: '2025/1419',
   Pol26b: '2026/1452',
+  Pol26c: '2026/2148',
+  Pol26d: '2026/2205',
+  SAS24: '2024/762',
+  WW25: '2025/1547',
 };
 
 const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
-const lerp = (a, b, t) => a + (b - a) * t;
 
 function svg(tag, attrs) {
   const el = document.createElementNS(SVG_NS, tag);
@@ -130,22 +129,17 @@ function arrowHead(tip, from, length = 8, width = 7) {
   return { base, points: points.map(p => p.join(',')).join(' ') };
 }
 
-function sample(from, control, to, count = 32) {
-  return Array.from({ length: count + 1 }, (_, i) => {
-    const t = i / count;
-    if (!control) return { x: lerp(from.x, to.x, t), y: lerp(from.y, to.y, t) };
-    const a = (1 - t) * (1 - t);
-    const b = 2 * (1 - t) * t;
-    const c = t * t;
-    return { x: a * from.x + b * control.x + c * to.x, y: a * from.y + b * control.y + c * to.y };
-  });
-}
-
 function bezier(p0, c, p2, t) {
   const a = (1 - t) * (1 - t);
   const b = 2 * (1 - t) * t;
   const e = t * t;
   return { x: a * p0.x + b * c.x + e * p2.x, y: a * p0.y + b * c.y + e * p2.y };
+}
+
+// Points along a straight line (no control point) or a quadratic curve.
+function sample(from, control, to, count = 32) {
+  const c = control ?? { x: (from.x + to.x) / 2, y: (from.y + to.y) / 2 };
+  return Array.from({ length: count + 1 }, (_, i) => bezier(from, c, to, i / count));
 }
 
 // Parameter where the curve crosses the edge of the box centered at `ctr`.
