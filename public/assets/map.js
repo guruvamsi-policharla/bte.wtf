@@ -12,7 +12,7 @@ const BOXES = [
   { id: 'stibe', title: 'Silent Threshold IBE', papers: 'WW25', x: 840, y: 160 },
   { id: 'beat', title: 'BEAT-MEV(++)', papers: 'BFOQ25, ABDGMPRY25', x: 600, y: 160 },
   { id: 'pfbte', title: 'Partial Fraction-BTE', papers: 'BNRT26', x: 120, y: 390 },
-  { id: 'btibe', title: 'Batched Threshold IBE', papers: 'SAS24, CGPW25, AFP25, GWWW25', x: 520, y: 275 },
+  { id: 'btibe', title: 'Batched Threshold IBE', papers: 'SAS24, CGPW25, AFP25', x: 520, y: 275 },
   { id: 'tree', title: 'Tree-BTE', papers: 'ADGPR26', x: 880, y: 275 },
   { id: 'simple', title: 'Simple BTE, BTX', papers: 'Pol26a, ADGRS26', x: 345, y: 390 },
   { id: 'trx', title: 'TrX', papers: 'FPTX25', x: 490, y: 390 },
