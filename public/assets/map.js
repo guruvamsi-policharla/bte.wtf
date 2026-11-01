@@ -139,6 +139,38 @@ function sample(from, control, to, count = 32) {
   });
 }
 
+function bezier(p0, c, p2, t) {
+  const a = (1 - t) * (1 - t);
+  const b = 2 * (1 - t) * t;
+  const e = t * t;
+  return { x: a * p0.x + b * c.x + e * p2.x, y: a * p0.y + b * c.y + e * p2.y };
+}
+
+// Parameter where the curve crosses the edge of the box centered at `ctr`.
+function boundaryT(p0, c, p2, ctr, size, insideAtStart) {
+  const inside = p => Math.abs(p.x - ctr.x) <= size.w / 2 && Math.abs(p.y - ctr.y) <= size.h / 2;
+  let lo = 0;
+  let hi = 1;
+  for (let i = 0; i < 30; i++) {
+    const mid = (lo + hi) / 2;
+    if (inside(bezier(p0, c, p2, mid)) === insideAtStart) lo = mid;
+    else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+
+// The part of the curve between two box centers that lies outside both boxes,
+// as a quadratic curve of its own, so the arrowhead follows the curve's direction.
+function clipCurve(p0, c, p2, fromSize, toSize) {
+  const t0 = boundaryT(p0, c, p2, p0, fromSize, true);
+  const t1 = boundaryT(p0, c, p2, p2, toSize, false);
+  const control = {
+    x: (1 - t0) * (1 - t1) * p0.x + ((1 - t0) * t1 + t0 * (1 - t1)) * c.x + t0 * t1 * p2.x,
+    y: (1 - t0) * (1 - t1) * p0.y + ((1 - t0) * t1 + t0 * (1 - t1)) * c.y + t0 * t1 * p2.y,
+  };
+  return { start: bezier(p0, c, p2, t0), control, end: bezier(p0, c, p2, t1) };
+}
+
 function segments(points) {
   return points.slice(1).map((point, i) => [points[i], point]);
 }
@@ -196,10 +228,16 @@ function drawArrows(layer, boxEls) {
         bottom: center[box.id].y + size[box.id].h / 2 + 8,
       }));
     const best = route(start, tip, obstacles, routed);
-    const head = arrowHead(tip, best.control ?? start);
-    const d = best.control
-      ? `M ${start.x} ${start.y} Q ${best.control.x} ${best.control.y} ${head.base.x} ${head.base.y}`
-      : `M ${start.x} ${start.y} L ${head.base.x} ${head.base.y}`;
+    let d;
+    let head;
+    if (best.control) {
+      const curve = clipCurve(center[fromId], best.control, center[toId], size[fromId], size[toId]);
+      head = arrowHead(curve.end, curve.control);
+      d = `M ${curve.start.x} ${curve.start.y} Q ${curve.control.x} ${curve.control.y} ${head.base.x} ${head.base.y}`;
+    } else {
+      head = arrowHead(tip, start);
+      d = `M ${start.x} ${start.y} L ${head.base.x} ${head.base.y}`;
+    }
     layer.append(svg('path', { class: 'map-arrow', d }), svg('polygon', { class: 'map-arrow-head', points: head.points }));
     routed.push(...segments(best.points));
   }
